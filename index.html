@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moon Quality Selector</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="stars-canvas"></canvas>
+  <div class="aurora">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+  </div>
+
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <p class="eyebrow">مرصد القمر</p>
+      <h1>القمر <span class="accent">عن قُرب</span></h1>
+      <svg class="flourish" viewBox="0 0 220 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="flourish-path" d="M2 12 C 40 2, 60 22, 100 12 S 160 2, 218 12" stroke="url(#flourishGrad)" stroke-width="1.4" stroke-linecap="round"/>
+        <circle cx="110" cy="12" r="3" fill="url(#flourishGrad)"/>
+        <defs>
+          <linearGradient id="flourishGrad" x1="0" y1="0" x2="220" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#E39CA6" stop-opacity="0"/>
+            <stop offset="50%" stop-color="#F0C9B8"/>
+            <stop offset="100%" stop-color="#E39CA6" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <p class="subtitle">اختاري — أو اختر — جودة العرض لترَي القمر بكامل رونقه</p>
+    </div>
+
+    <!-- Moon Display -->
+    <div class="moon-panel">
+      <div class="moon-stage">
+        <div class="image-container" id="image-container">
+          <img id="moon-144"  class="moon-image"        src="images/moon-144p.jpg"  alt="Moon 144p">
+          <img id="moon-240"  class="moon-image hidden"  src="images/moon-240p.jpg"  alt="Moon 240p">
+          <img id="moon-480"  class="moon-image hidden"  src="images/moon-480p.jpg"  alt="Moon 480p">
+          <img id="moon-720"  class="moon-image hidden"  src="images/moon-720p.jpg"  alt="Moon 720p">
+          <img id="moon-1080" class="moon-image hidden"  src="images/moon-1080p.jpeg" alt="Moon 1080p">
+        </div>
+        <div class="quality-badge" id="quality-badge">144p · Pixelated</div>
+      </div>
+
+      <!-- Ribbon Selector -->
+      <div class="selector-wrap">
+        <label class="selector-label" for="quality-slider">جودة الصورة</label>
+        <div class="slider-track-wrap">
+          <input type="range" id="quality-slider" min="0" max="4" step="1" value="0" dir="ltr" aria-label="Image quality">
+        </div>
+        <div class="slider-ticks" id="slider-ticks">
+          <span data-i="0" class="active">144p</span>
+          <span data-i="1">240p</span>
+          <span data-i="2">480p</span>
+          <span data-i="3">720p</span>
+          <span data-i="4">1080p</span>
+        </div>
+      </div>
+
+      <!-- Info Strip -->
+      <div class="quality-info">
+        <div class="info-item">
+          <span class="info-value" id="info-res">144p</span>
+          <span class="info-label">الدقة</span>
+        </div>
+        <div class="info-divider"></div>
+        <div class="info-item">
+          <span class="info-value" id="info-tier">Basic</span>
+          <span class="info-label">المستوى</span>
+        </div>
+        <div class="info-divider"></div>
+        <div class="info-item">
+          <span class="info-value" id="info-dist">384,400</span>
+          <span class="info-label">كم بعيداً</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="flower-container"></div>
+  <script src="script.js"></script>
+</body>
+</html>
